@@ -7,8 +7,6 @@ services:
     container_name: xcoin-api
     restart: unless-stopped
     tty: true
-    volumes:
-      - ./logs:/var/www/logs
     ports:
       - "8000:8000"
     networks:
