@@ -1,9 +1,8 @@
 import express from "express";
-import { Router } from "express";
 import { Simulator } from "../models/Simulator";
 import cors from "cors";
 import logger from "../utils/logger";
-import { Profile } from "src/models/Profile";
+import { Profile } from "../models/Profile";
 
 var app = express();
 app.use(cors());

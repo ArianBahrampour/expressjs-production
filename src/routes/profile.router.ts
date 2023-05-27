@@ -15,7 +15,7 @@ router.get("/api/profile", async (req, res) => {
 
 router.post("/api/profile", async (req, res) => {
     var { email, name, nickname } = req.body;
-
+    logger.info(req.body);
     if (!email || !name || !nickname) {
         res.status(400).json({ message: "Missing fields" });
     }

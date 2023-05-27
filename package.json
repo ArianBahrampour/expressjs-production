@@ -33,12 +33,13 @@
   "scripts": {
     "dev": "ts-node-dev src/api.ts",
     "seed": "ts-node-dev src/scripts/seed.ts",
-    "start": "node dist/api.js",
+    "start": "node dist/src/api.js",
     "build": "tsc -b",
     "test": "npx ts-jest"
   },
   "devDependencies": {
     "@types/jest": "^29.5.1",
+    "@types/mongoose": "^5.11.97",
     "@typescript-eslint/eslint-plugin": "^4.22.0",
     "@typescript-eslint/parser": "^4.22.0",
     "eslint": "^7.25.0",

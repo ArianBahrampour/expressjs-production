@@ -1,8 +1,8 @@
 import request from "supertest";
 import express from "express";
-import { router } from "./favorite.router";
-import { Favorite } from "../models/Favorite";
-import logger from "../utils/logger";
+import { router } from "../src/routes/favorite.router";
+import { Favorite } from "../src/models/Favorite";
+import logger from "../src/utils/logger";
 
 jest.mock("../models/Favorite", () => ({
     Favorite: {
