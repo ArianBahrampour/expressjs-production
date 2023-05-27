@@ -1,0 +1,41 @@
+version : '3.8'
+services:
+  xcoin-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: xcoin-api
+    restart: unless-stopped
+    tty: true
+    volumes:
+      - ./logs:/var/www/logs
+    ports:
+      - "8000:8000"
+    networks:
+      - api-network
+
+  mongo:
+    image: "mongo"
+    container_name: xcoin-mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "${MONGO_DB_ROOT_USERNAME}"
+      MONGO_INITDB_ROOT_PASSWORD: "${MONGO_DB_ROOT_PASSWORD}"
+      MONGO_INITDB_DATABASE: "${MONGO_DB_NAME}"
+    volumes:
+      - ./db:/var/lib/mongodb
+      - ./.docker/mongodb/data/db/:/data/db/
+      - ./.docker/mongodb/data/log/:/var/log/mongodb/
+    ports:
+      - "27017:27017"
+    expose:
+      - 27017
+    networks:
+      - api-network
+      
+
+networks:
+  api-network:
+    driver: bridge
+
+
+
