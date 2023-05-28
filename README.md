@@ -31,3 +31,24 @@ npm install -g ts-node
 
 ts-node src/scripts/seed.ts
 ```
+
+# My steps for code review
+
+## Docker
+
+First of all I started writing docker file and docker compose for the project to run it in a containerized environment. I used the official node image and added the necessary dependencies. I also added the mongo image to the docker compose file. Mongo db data is stored in a volume so no data will be lost.
+
+-   There is an nginx.conf file in the project which can used for proxing the api.
+
+## Environment variables
+
+After that I added the environment variables to the docker compose file and also added the .env.example file to the project. I also added the dotenv package to the project to read the environment variables from the .env file.
+
+## Logs And Error Handling
+
+I added the winston package to the project for logging. I created a logger.ts file in the project and added the necessary configurations. I also added the express-async-errors package to the project for error handling. I created an error.ts file in the project and added the necessary error classes.
+Each request is logged with the winston package. I also added the morgan package to the project for logging the requests.
+
+## API Validation and Testing
+
+APIs needed validation for body with propper response. Also added some test for the project. I used the jest package for testing. I created a test folder in the project and added the necessary tests. I also added the supertest package to the project for testing the APIs.
